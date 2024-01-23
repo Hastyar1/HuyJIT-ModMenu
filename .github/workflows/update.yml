@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: estrogen-arm64.deb
-          path: ./packages/estrogen-arm64.deb
+          path: ./packages/com.paim.jitmenu_1.0_iphoneos-arm64.deb
 
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
@@ -42,13 +42,13 @@ jobs:
       - name: Get artifact
         uses: actions/download-artifact@v3
         with:
-          name: test-arm64.deb
+          name: com.paim.jitmenu_1.0_iphoneos-arm64.deb
 
       - name: Create new rolling release
         uses: ncipollo/release-action@v1
         with:
           name: Rolling Release
-          body: "This is a parody of flameaway/RemoveConfidential."
-          artifacts: "estrogen-arm64.deb"
+          body: "for testing ."
+          artifacts: "com.paim.jitmenu_1.0_iphoneos-arm64.deb"
           tag: release
           token: ${{ secrets.GITHUB_TOKEN }}
