@@ -1,52 +1,35 @@
-name: Build and Package
+name: Build tweak
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
-  schedule:
-    - cron: "0 * * * *"
 
 jobs:
   build:
-    name: Build RootHide Bootstrap .tipa
+    name: Build tweak
     runs-on: macos-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name "${GITHUB_ACTOR}"
-          git remote add upstream https://github.com/Hastyar1/HuyJIT-ModMenu
-          git fetch upstream
-          git fetch --all --prune
-          git pull --rebase --strategy-option=theirs upstream main
-    
-      - name: Install Homebrew
-        run: bash -c "$(curl -fsSL 'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh')"
-
       - name: Install Theos
-        run: bash -c "$(curl -fsSL 'https://raw.githubusercontent.com/roothide/theos/master/bin/install-theos')"
-
-      - name: Install make
-        run: brew install make
+        run: bash -c "$(curl -fsSL 'https://raw.githubusercontent.com/theos/theos/master/bin/install-theos')"
 
       - name: Setup Theos environment
         run: echo "THEOS=~/theos" >> $GITHUB_ENV
 
-      - name: Make bootstrap package
-        run: gmake -j$(sysctl -n hw.ncpu) package
+      - name: Make tweak
+        run: make package
+
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Bootstrap.deb
-          path: ./packages/Bootstrap.deb
+          name: estrogen-arm64.deb
+          path: ./packages/estrogen-arm64.deb
 
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
@@ -56,11 +39,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create new release
+      - name: Get artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: test-arm64.deb
+
+      - name: Create new rolling release
         uses: ncipollo/release-action@v1
         with:
-          name: Rolling Bootstrap Release
-          body: This is an automatically updated build of the latest RootHide Bootstrap commit.
-          artifacts: "Bootstrap.deb"
+          name: Rolling Release
+          body: "This is a parody of flameaway/RemoveConfidential."
+          artifacts: "estrogen-arm64.deb"
           tag: release
           token: ${{ secrets.GITHUB_TOKEN }}
