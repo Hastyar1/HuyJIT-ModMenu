@@ -1,8 +1,8 @@
-Package: com.paim.jitmenu
+Package: Pain
 Name: JIT IMGUI MOD MENU
 Depends: mobilesubstrate
 Version: 1.0
-Architecture: iphoneos-arm
+Architecture: arm64e
 Description: IMGUI MOD MENU
 Maintainer: paa1n
 Author: paa1n
