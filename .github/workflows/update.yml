@@ -56,11 +56,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get bootstrap artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: Bootstrap.deb
-
       - name: Create new release
         uses: ncipollo/release-action@v1
         with:
