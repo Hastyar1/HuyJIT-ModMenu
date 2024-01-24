@@ -2,7 +2,7 @@ Package: pain
 Name: JIT IMGUI MOD MENU
 Depends: mobilesubstrate
 Version: 1.0
-Architecture: arm64e
+Architecture: arm64
 Description: IMGUI MOD MENU
 Maintainer: paa1n
 Author: paa1n
