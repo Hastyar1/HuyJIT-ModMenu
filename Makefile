@@ -1,10 +1,10 @@
 #export THEOS=/var/mobile/theos
 ARCHS = arm64
 #Add arm64e if it needed
-DEBUG = 0
+DEBUG = 1
 FINALPACKAGE = 1
 FOR_RELEASE = 1
-THEOS_PACKAGE_SCHEME = rootless
+THEOS_PACKAGE_SCHEME = rootfull
 
 include $(THEOS)/makefiles/common.mk
 
