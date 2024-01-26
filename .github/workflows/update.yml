@@ -28,8 +28,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: pain_1.0_arm64.deb
-          path: ./packages/pain_1.0_arm64.deb
+          name: pain_1.0+debug_arm64.deb
+          path: ./packages/pain_1.0+debug_arm64.deb
 
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
@@ -42,13 +42,13 @@ jobs:
       - name: Get artifact
         uses: actions/download-artifact@v3
         with:
-          name: pain_1.0_arm64.deb
+          name: pain_1.0+debug_arm64.deb
 
       - name: Create new rolling release
         uses: ncipollo/release-action@v1
         with:
           name: Rolling Release
           body: "This is a parody of flameaway/RemoveConfidential."
-          artifacts: "pain_1.0_arm64.deb"
+          artifacts: "pain_1.0+debug_arm64.deb"
           tag: release
           token: ${{ secrets.GITHUB_TOKEN }}
