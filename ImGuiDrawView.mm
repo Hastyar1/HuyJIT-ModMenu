@@ -200,7 +200,7 @@ static bool MenDeal = true;
                 
                 ImGui::TableNextColumn();
 
-                ImGui::Checkbox("Map Cheat Enable", &show_s0);
+                ImGui::Checkbox("pet unlock i guss", &show_s0);
 
                 ImGui::Text("Contact me on Telegram: @little34306 (%.3f ms/frame (%.1f FPS))\nThis menu support Xina, Dopamine, unc0ver, palera1n\nand Non-jailbreak too!", 500.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
@@ -216,15 +216,15 @@ static bool MenDeal = true;
 //This function below maybe outdated, idk. But it's an example how we can use
     if(show_s0){
         if(show_s0_active == NO){
-            vm_unity(ENCRYPTOFFSET("0x5F145F8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            vm(ENCRYPTOFFSET("0x5F145F8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm_unity(ENCRYPTOFFSET("0x164D0C8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm(ENCRYPTOFFSET("0x164D0C8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
             }
         show_s0_active = YES;
     }
     else{
         if(show_s0_active == YES){
-            vm_unity(ENCRYPTOFFSET("0x5F145F8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            vm(ENCRYPTOFFSET("0x5F145F8"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm_unity(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
             }
         show_s0_active = NO;
     }
