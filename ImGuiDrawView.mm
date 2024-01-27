@@ -216,8 +216,8 @@ static bool MenDeal = true;
 //This function below maybe outdated, idk. But it's an example how we can use
     if(show_s0){
         if(show_s0_active == NO){
-            vm_unity(ENCRYPTOFFSET("0x164D350"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            vm(ENCRYPTOFFSET("0x164D350"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm_unity(ENCRYPTOFFSET("0x164C6FC"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
+            vm(ENCRYPTOFFSET("0x164C6FC"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
             }
         show_s0_active = YES;
     }
