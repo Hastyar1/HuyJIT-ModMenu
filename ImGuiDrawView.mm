@@ -237,33 +237,7 @@ static bool MenDeal = true;
             });
 
 
-    static bool show_s1_active = false;
     
-        
-        if (MenDeal == true) {
-            [self.view setUserInteractionEnabled:YES];
-        } else if (MenDeal == false) {
-            [self.view setUserInteractionEnabled:NO];
-        }
-
-        MTLRenderPassDescriptor* renderPassDescriptor = view.currentRenderPassDescriptor;
-        if (renderPassDescriptor != nil)
-        {
-            id <MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
-            [renderEncoder pushDebugGroup:@"ImGui Jane"];
-
-            ImGui_ImplMetal_NewFrame(renderPassDescriptor);
-            ImGui::NewFrame();
-            
-            ImFont* font = ImGui::GetFont();
-            font->Scale = 15.f / font->FontSize;
-            
-            CGFloat x = (([UIApplication sharedApplication].windows[0].rootViewController.view.frame.size.width) - 360) / 2;
-            CGFloat y = (([UIApplication sharedApplication].windows[0].rootViewController.view.frame.size.height) - 300) / 2;
-            
-            ImGui::SetNextWindowPos(ImVec2(x, y), ImGuiCond_FirstUseEver);
-            ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver);
-            
             if (MenDeal == true)
             {                
                 
