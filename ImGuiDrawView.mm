@@ -236,49 +236,6 @@ static bool MenDeal = true;
                 DobbyHook((void *)(getRealOffset(ENCRYPTOFFSET("0x5F145F8"))), (void *)_huy, (void **)&huy);
             });
 
-
-    
-            if (MenDeal == true)
-            {                
-                
-                ImGui::TableNextColumn();
-
-                ImGui::Checkbox("use for something", &show_s1);
-
-                ImGui::Text("Contact me on Telegram: @little34306 (%.3f ms/frame (%.1f FPS))\nThis menu support Xina, Dopamine, unc0ver, palera1n\nand Non-jailbreak too!", 500.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
-
-                ImGui::End();
-                
-            }
-            ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
-
-
-
-//Okay so this is the space we place our cheat function
-//This function below maybe outdated, idk. But it's an example how we can use
-    if(show_s1){
-        if(show_s1_active == NO){
-            vm_unity(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            vm(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            }
-        show_s1_active = YES;
-    }
-    else{
-        if(show_s1_active == YES){
-            vm_unity(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            vm(ENCRYPTOFFSET("0x164C714"), strtoul(ENCRYPTHEX("00008052C0035FD6"), nullptr, 0));
-            }
-        show_s1_active = NO;
-    }
-        
-//Hook function example
-    static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
-                //use DobbyHook, same kind of MSHookFunction but working on JIT, Dopamine!
-                DobbyHook((void *)(getRealOffset(ENCRYPTOFFSET("0x164C714"))), (void *)_huy, (void **)&huy);
-            });
-
             ImGui::Render();
             ImDrawData* draw_data = ImGui::GetDrawData();
             ImGui_ImplMetal_RenderDrawData(draw_data, commandBuffer, renderEncoder);
