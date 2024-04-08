@@ -12,6 +12,8 @@ TWEAK_NAME = 34306jit
 #If you want to change TWEAK_NAME just change up here. It will automatically change these below, don't need to change it by hand anymore!
 
 $(TWEAK_NAME)_FRAMEWORKS =  UIKit Foundation Security QuartzCore CoreGraphics CoreText  AVFoundation Accelerate GLKit SystemConfiguration GameController
+#Edit TWEAK_NAME and remove @@
+@@TWEAK_NAME@@_LDFLAGS += API/libAPIClient.a
 
 $(TWEAK_NAME)_CCFLAGS = -std=c++11 -fno-rtti -fno-exceptions -DNDEBUG
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-variable -Wno-unused-value
