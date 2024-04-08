@@ -1,3 +1,4 @@
+#import "API/APIClient.h"
 //Require standard library
 #import <Metal/Metal.h>
 #import <MetalKit/MetalKit.h>
@@ -15,6 +16,26 @@
 #import "5Toubun/NakanoYotsuba.h"
 #import "5Toubun/NakanoItsuki.h"
 #import "5Toubun/dobby.h"
+
+#import "APIClient.h"
+
+void function(){
+    APIClient *API = [[APIClient alloc] init];
+    [API setToken:@"TOKEN"]; //Enter token from dashboard
+   //paid
+    [API paid:^{
+        //load menu
+        loadview(); //etc
+        menuSetup();
+
+        //Optional
+    	NSLog(@"APIData - Key: %@", [API getKey]);
+        NSLog(@"APIData - UDID: %@", [API getUDID]);
+        NSLog(@"APIData - Expiry date: %@", [API getExpiryDate]);
+        NSLog(@"APIData - Device model: %@", [API getDeviceModel]);
+
+   }];
+}
 
 #define kWidth  [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
