@@ -11,11 +11,12 @@ jobs:
   build:
     name: Build tweak
     runs-on: macos-latest
+    
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-       - name: Checkout theos/theos
+      - name: Checkout theos/theos
         uses: actions/checkout@main
         with:
           repository: theos/theos
