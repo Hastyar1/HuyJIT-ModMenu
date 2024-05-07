@@ -23,14 +23,6 @@
     [API setToken:@"TOKEN"]; //Enter token from dashboard
 
 
-        //Optional
-    	NSLog(@"APIData - Key: %@", [API getKey]);
-        NSLog(@"APIData - UDID: %@", [API getUDID]);
-        NSLog(@"APIData - Expiry date: %@", [API getExpiryDate]);
-        NSLog(@"APIData - Device model: %@", [API getDeviceModel]);
-
-   }];
-}
 
 #define kWidth  [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -42,6 +34,9 @@
 @end
 
 @implementation ImGuiDrawView
+
+APIClient *API = [[APIClient alloc] init];
+API setToken:@"TOKEN"]; //Enter token from dashboard
 
 //I usually let the function for hooking in here...
 void (*huy)(void *instance);
